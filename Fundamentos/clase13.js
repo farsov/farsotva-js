@@ -1,5 +1,5 @@
 
-/* Arrow Functions
+/* For
 
 En esta clase estudiaremos una de las estructuras básicas de control. El bucle for, se utiliza para repetir una o más instrucciones un determinado número de veces.
 

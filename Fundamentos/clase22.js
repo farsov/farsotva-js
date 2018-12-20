@@ -1,17 +1,14 @@
 
-/* Cómo funcionan las clases en JavaScript
-Las clases son funciones cuya sintaxis tiene dos componentes:
+/* 
+Modificando un prototipo:
 
-expresiones
-declaraciones
-En esta clase veremos el uso de this. Dentro de una función, el valor de this depende de cómo es llamada ésta.
+En esta clase veremos cómo se modifican las clases de herencias. JavaScript funciona con una estructura orientada a objetos y cada objeto tiene una propiedad privada que mantiene un enlace a otro objeto llamado prototipo.
 
-Reto: agrega el atributo altura y la función soyAlto.
+El contexto de las funciones: quién es this
 
-*Hablar de objetos en javascript es hablar de prototipos.
-*this hace referencia al nuevo objeto que se acaba de crear.
-*la función que define al prototipo retorna implícitamente this, es decir retorna el nuevo objeto que se creo.
-*La palabra reservada new se utiliza para crear un nuevo objeto con el prototipo indicado.
+En esta clase explicamos por qué al introducir el arrow function salió un error. El error del contexto de this en javascrip es uno de los errores más comunes.
+
+Recuerda que dentro de la arrow function, this está haciendo referencia al espacio global, a windows.
 */
 
 function Persona(nombre, apellido, altura){
@@ -25,11 +22,14 @@ Persona.prototype.saludar = function() {
     console.log(`Hola, me llamo ${this.nombre} ${this.apellido}`)
 }
 
-Persona.prototype.soyAlto =  function() {
-    console.log(`${this.nombre} ${this.altura >= 1.8 ? 'es una persona' : 'no es una persona'} alta`)
+Persona.prototype.soyAlto = () => {
+    return  this.altura >= 1.8
 }
 
 var sacha = new Persona('Sacha', 'Perez', 1.82)
-var Arturo = new Persona('Arturo', 'Martinez', 1.5)
+var arturo = new Persona('Arturo', 'Martinez', 1.5)
+
 sacha.saludar()
+sacha.soyAlto()
+
 
